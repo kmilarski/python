@@ -11,18 +11,18 @@ Provide feedback based on the computed difference (e.g., "Very Hot" for close gu
 
 The loop should continue until the user guesses the correct number.
 '''
-import random
+import random        # Imports random module
 
-
+# Main fnction
 def main():
-    from random import randint
-    num = randint(1, 100)
+    from random import randint            # Imports randint from random
+    num = randint(1, 100)        # creates variable 'num' and gets a number between 1 and 100
 
-    guess = int(input("Enter a number between 1 and 100: "))
-    while guess != num:
-        faroff = abs(num - guess)
+    guess = int(input("Enter a number between 1 and 100: "))        # User input saved as 'guess'
+    while guess != num:        # While loop that continues asking for the user to try again if guess != num
+        faroff = abs(num - guess)            # 'faroff' uses 'abs' to figure out how far off the users guess is from num
         if faroff <= 5:
-            print("Very hot")
+            print("Very hot")                        # prints hints
         elif faroff <= 15:
             print("Hot")
         elif faroff <= 25:
@@ -30,7 +30,7 @@ def main():
         elif faroff >= 25:
             print("Cold")
         guess = int(input("Try again: "))
-    print(f"You guessed it! The number was {num}")
+    print(f"You guessed it! The number was {num}")            # If number is guessed, while loop breaks and tells the user the number was guessed.
 
 
-main()
+main()            # Calls main
