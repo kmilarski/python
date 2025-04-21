@@ -16,9 +16,12 @@ def main():         # Main function
     date = input("Please enter the current date(mm/dd/yyyy): ")         # Date input
     time = input("Please enter the current time(hh:mm (AM/PM)): ")      # Time input
     diary_entry = input("Enter your diary entry here: ")                # Main diary entry
+    try:
+        with open('diary/diary.txt', 'a') as file:      # open diary folder, then open diary.txt as file using 'a' to append to the file, not overwrite
 
-    with open('diary/diary.txt', 'a') as file:      # open diary folder, then open diary.txt as file using 'a' to append to the file, not overwrite
-
-        file.write(date + '\n' + time + '\n' + diary_entry + '\n\n\n')      # Writes date, time, and entry in a readable manner
-
+            file.write(date + '\n' + time + '\n' + diary_entry + '\n\n\n')      # Writes date, time, and entry in a readable manner
+    except FileNotFoundError:
+        print("File not found.")
+    except Exception as e:
+        print("An error occured:", e)
 main()
